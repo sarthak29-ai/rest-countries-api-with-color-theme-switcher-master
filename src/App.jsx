@@ -1,6 +1,6 @@
+import HomeError from './error/HomeError';
+import DetailsError from './error/DetailsError';
 import React, { useEffect } from 'react';
-import DetailsLoading from './Loading/DetailsLoading';
-import HomeLoading from './Loading/HomeLoading';
 import { DetailsLoader } from './Loader/detailsLoader.jsx';
 import { CountriesLoader } from './Loader/CountriesLoader.jsx';
 import RootLayout from './layouts/RootLayout';
@@ -16,17 +16,15 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        loader: countriesLoader,
+        loader: CountriesLoader,
         element: <Home />,
-        HydrateFallback: HomeLoading, // Your custom grid skeleton
-        errorElement: <ErrorFallback type="home" />,
+        errorElement: <HomeError/>,
       },
       {
         path: "country/:id",
-        loader: detailsLoader,
+        loader: DetailsLoader,
         element: <Details />,
-        HydrateFallback: DetailsLoading, // Your custom hero skeleton
-        errorElement: <ErrorFallback type="details" />,
+        errorElement: <DetailsError/>,
       },
     ],
   },
