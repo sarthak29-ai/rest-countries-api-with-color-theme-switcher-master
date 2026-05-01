@@ -6,31 +6,35 @@ import { CountriesLoader } from './Loader/CountriesLoader.jsx';
 import RootLayout from './layouts/RootLayout';
 import Home from './Pages/Home';
 import Details from './Pages/Details';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
       {
         index: true,
-        loader: CountriesLoader,
+        loader: countriesLoader,
         element: <Home />,
-        HydrateFallback: HomeLoading,
-        errorElement: <div className="p-16 dark:text-white">Country not found.</div>
+        HydrateFallback: HomeLoading, // Your custom grid skeleton
+        errorElement: <ErrorFallback type="home" />,
       },
       {
         path: "country/:id",
-        loader: DetailsLoader,
+        loader: detailsLoader,
         element: <Details />,
-        HydrateFallback: DetailsLoading,
-        errorElement: <div className="p-16 dark:text-white">Country not found.</div>
+        HydrateFallback: DetailsLoading, // Your custom hero skeleton
+        errorElement: <ErrorFallback type="details" />,
       },
     ],
   },
+  {
+    basename: "/rest-countries-api-with-color-theme-switcher-master", 
+  },
 ]);
+
 
 export default function App() {
   

@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/rest-countries-api-with-color-theme-switcher-master/',
   plugins: [
     react(),
     tailwindcss()
