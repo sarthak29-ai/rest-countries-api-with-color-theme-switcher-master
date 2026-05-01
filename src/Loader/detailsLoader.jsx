@@ -27,7 +27,6 @@ function normalizeData(isApi, country) {
   
   
   
-  console.log(lang, curr);
   return {
     name : isApi? country.name.common: country.name,
     flags : country.flags,
@@ -50,7 +49,6 @@ const helper = async ({ params }) => {
   let response = {}
   try {
     response = await fetch(`https://restcountries.com/v3.1/alpha/${id}`);
-    console.log(response);
     
   } catch (err) {
     console.error("api error",err);
@@ -74,7 +72,6 @@ const helper = async ({ params }) => {
   } catch (err) {
     console.error(err);
   }
-  //console.log(response);
   
   
   

@@ -11,7 +11,6 @@ class HomeCache {
   }
   
   getScroll(){
-    console.log("scroll", this.cache.topSrcoll);
     return this.cache.topSrcoll;
   }
   getCount(){

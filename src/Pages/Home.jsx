@@ -81,15 +81,13 @@ const Home = () => {
 
             useLayoutEffect(() => {
               return () => {
-                console.log(currentPathRef.current);
 
                 if (currentPathRef.current) {
                   const scrollPos = window.scrollY;
                   homeCache.setScroll(scrollPos);
-                  console.log("Saved scroll before leaving home:", scrollPos);
                 }
               };
-            }, [location.pathname]);
+            }, [currentPathRef.current]);
               
             
             

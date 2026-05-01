@@ -9,10 +9,9 @@ const helper = async ( request) => {
   
   const region = url.searchParams.get("region");
   const cache = countryCache.getCountries(region, searchTerm)
-  console.log(cache);
+  
   
   if(cache && cache.fromCache){
-    console.log("from cache");
     return {
       isApi: cache.isApi, 
       countries : cache.countries,
