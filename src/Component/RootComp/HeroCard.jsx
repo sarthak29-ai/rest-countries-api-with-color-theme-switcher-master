@@ -1,5 +1,7 @@
 // components/CountryHero.jsx
 import { Link } from 'react-router-dom';
+import { HiArrowNarrowLeft } from "react-icons/hi";
+
 
 const CountryHero = ({ country, onBackClick }) => {
   const { 
@@ -7,7 +9,10 @@ const CountryHero = ({ country, onBackClick }) => {
     capital, tld, currencies, languages, borders, nativeName 
   } = country;
   
-  // Formatting helpers for v3.1 API structure
+
+
+  const currencyList = Array.isArray(currencies)? currencies.map(c => c.name).join(', ') : 'N/A';
+  
   const languageList = Array.isArray(languages)? languages.join(', '): 'N/A';
   
   
@@ -17,10 +22,11 @@ const CountryHero = ({ country, onBackClick }) => {
 
       <button 
         onClick={onBackClick}
-        className="flex items-center gap-2 px-8 py-4 bg-white dark:bg-dark-blue shadow-[0_0_7px_0_rgba(0,0,0,0.1)] dark:shadow-none rounded-sm mb-16 dark:text-very-light-gray hover:opacity-75 transition-all active:scale-95"
+        className="flex items-center gap-2 px-6 py-2 bg-white dark:bg-dark-blue shadow-[0_0_7px_0_rgba(0,0,0,0.1)] dark:shadow-none rounded-sm mb-16 dark:text-very-light-gray hover:opacity-75 transition-all active:scale-95"
         aria-label="Go back to the previous page"
       >
-        <span className="text-xl dark:text-very-light-gray ">←</span> Back
+      <HiArrowNarrowLeft size={20}/>
+      Back
       </button>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-28 items-center">
