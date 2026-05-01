@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme{
+ 
+
+  /* Brand Colors from the design */
+  --color-dark-blue: oklch(0.3362 0.0283 246.95);
+  --color-very-dark-blue-dark: oklch(0.2882 0.0252 243.46);
+  --color-very-dark-blue-light: hsl(23, 76%, 43%);
+  
+  --color-dark-gray-light: oklch(0.1942 0.0076 229.32);
+  --color-light-gray: oklch(0.5982 0 0);
+  --color-very-light-gray: oklch(0.9824 0 0);
+  --color-white: oklch(1 0 0);
+}
+
+/* In Tailwind v4, we tell it to trigger 'dark' utilities 
+  whenever the .dark class is present on a parent (the <html> tag).
+*/
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply bg-very-light-gray text-very-dark-blue-dark transition-colors duration-300;
+  }
+}
